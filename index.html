@@ -2,28 +2,31 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>My Django Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to my Django site!</h1>
+    <!-- Фоновое изображение -->
+    <div class="background-image"></div>
+
+    <!-- Навигационное меню -->
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="register.html" class="register-button">Регистрация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент главной страницы -->
+    <div class="content">
+        <h1>Добро пожаловать на наш сайт!</h1>
+        <p>Мы рады видеть вас здесь. Ознакомьтесь с нашими услугами и зарегистрируйтесь, чтобы узнать больше.</p>
+    </div>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Красивый шрифт на веб-странице</title>
-    <!-- Подключаем шрифт Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Применяем шрифт Roboto ко всей странице */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-image: url('https://i.okcdn.ru/i?r=BDHsYJQ9nKW8WSbKUwTOyh4ogcNcNHaypKUmy6E01lHuJvtZy1Xa1NIVmDhtXk-MG-4&dpr=2');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* Высота страницы на весь экран */
-        }

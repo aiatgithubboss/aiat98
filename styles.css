@@ -1,100 +1,119 @@
-/* Общие стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Основные стили */
 body {
-    font-family: 'Roboto', sans-serif; /* Используем стильный шрифт */
-    line-height: 1.6;
-    transition: background 0.5s, color 0.5s; /* Плавный переход для фона и цвета */
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+/* Навигационное меню */
+nav {
+    background-color: #333;
+    padding: 10px;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    justify-content: center; /* Центрирование навигации */
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
 }
 
 .nav-links li {
-    margin: 0 15px; /* Отступы между элементами */
+    margin: 0;
 }
 
 .nav-links a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    transition: color 0.3s; /* Плавный переход цвета */
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-links .button {
+    background-color: #007BFF;
+    border-radius: 5px;
+    padding: 8px 12px;
 }
 
 .nav-links a:hover {
-    color: #ff6b6b; /* Цвет при наведении */
+    background-color: #575757;
 }
 
-.hero {
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-    position: relative; /* Для псевдоэлемента */
+/* Слайдер */
+.slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 2.5rem; /* Увеличенный размер заголовка */
-    margin-bottom: 20px; /* Отступ снизу */
+.slides {
+    display: none;
 }
 
-.cta-button {
-    background: #fff;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s; /* Плавный переход для кнопки */
+.slides img {
+    width: 100%;
 }
 
-.cta-button:hover {
-    background: #ff6b6b; /* Цвет кнопки при наведении */
-    color: white; /* Изменение цвета текста при наведении */
-}
-
-.content {
-    padding: 20px;
-    text-align: center; /* Центрирование контента */
-}
-
-footer {
-    background: #333;
-    color: #fff;
+.dots {
     text-align: center;
     padding: 10px 0;
 }
 
-/* Темная тема */
-body.dark {
-    background: #222;
-    color: #f0f0f0;
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.hero.dark {
-    background: linear-gradient(45deg, #6b6bff, #f06595); /* Изменение цвета заголовка для темной темы */
+.dot.active {
+    background-color: #717171;
 }
 
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column; /* Вертикальное размещение на маленьких экранах */
-    }
+/* О нас */
+.about, .contact {
+    padding: 20px;
+    text-align: center;
+}
 
-    .hero h1 {
-        font-size: 2rem; /* Уменьшение размера заголовка на маленьких экранах */
-    }
+h2 {
+    margin-top: 0;
+}
+
+/* Контактная форма */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Нижний колонтитул */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #ffffff;
 }

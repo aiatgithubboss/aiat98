@@ -1,9 +1,39 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
-h1 {
-    color: #333;
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://example.com/path-to-your-image.jpg'); /* Замените на URL вашего фотообоя */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Чтобы фон был под содержимым */
+}
+
+.content {
+    position: relative;
+    text-align: center;
+    color: white; /* Цвет текста */
+    padding-top: 20%;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: white;
+    background-color: #007bff; /* Цвет фона кнопки */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.register-button:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
 }

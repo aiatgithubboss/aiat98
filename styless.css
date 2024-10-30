@@ -1,39 +1,72 @@
-body {
+/* styles.css */
+
+/* Обнуление отступов и полей */
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-.background-image {
+/* Установка размеров для всей страницы */
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Блок для фона с видео */
+.background-video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://example.com/path-to-your-image.jpg'); /* Замените на URL вашего фотообоя */
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* Чтобы фон был под содержимым */
+    overflow: hidden;
+    z-index: -1;
 }
 
+.background-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Стили для контента */
 .content {
     position: relative;
+    z-index: 1;
     text-align: center;
-    color: white; /* Цвет текста */
-    padding-top: 20%;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
 }
 
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Стили для кнопки */
 .register-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    color: white;
-    background-color: #007bff; /* Цвет фона кнопки */
     text-decoration: none;
+    font-size: 1.1rem;
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 10px 20px;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .register-button:hover {
-    background-color: #0056b3; /* Цвет кнопки при наведении */
+    background-color: #0056b3;
 }

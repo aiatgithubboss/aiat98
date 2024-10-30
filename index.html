@@ -1,65 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Услуги</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="register.html" class="button">Регистрация</a></li>
-                <li><a href="login.html" class="button">Вход</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="slider">
-        <div class="slides">
-            <div class="slide fade">
-                <img src="https://source.unsplash.com/1600x600/?nature" alt="Слайд 1">
-            </div>
-            <div class="slide fade">
-                <img src="https://source.unsplash.com/1600x600/?city" alt="Слайд 2">
-            </div>
-            <div class="slide fade">
-                <img src="https://source.unsplash.com/1600x600/?technology" alt="Слайд 3">
-            </div>
-        </div>
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </section>
-
-    <section class="about">
-        <h2>О нас</h2>
-        <p>Мы предлагаем лучшие услуги для вас. Узнайте больше о нашем бизнесе.</p>
-    </section>
-
-    <section class="contact">
-        <h2>Свяжитесь с нами</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="email" placeholder="Ваш email" required>
-            <textarea placeholder="Ваше сообщение" required></textarea>
-            <button type="submit">Отправить</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Мой Веб-Сайт. Все права защищены.</p>
-    </footer>
-</body>
-</html>
 
 
 
@@ -79,11 +17,28 @@
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Услуги</a></li>
                 <li><a href="#">Контакты</a></li>
+                <li><a href="register.html" class="button">Регистрация</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
+
+          <section class="about">
+        <h2>О нас</h2>
+        <p>Мы предлагаем лучшие услуги для вас. Узнайте больше о нашем бизнесе.</p>
+    </section>
+
+    <section class="contact">
+        <h2>Свяжитесь с нами</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="email" placeholder="Ваш email" required>
+            <textarea placeholder="Ваше сообщение" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+        
         <section class="hero">
             <h1>Добро пожаловать на наш сайт!</h1>
             <p>Это пример адаптивной веб-страницы.</p>
@@ -95,7 +50,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2024 Мой Веб-Сайт. Все права защищены.</p>
+        <p>&copy; 2024 Мой Веб-Сайт. Все права защищены.  разработчик:Aiat</p>
     </footer>
 </body>
 </html>

@@ -1,48 +1,27 @@
 /* styles.css */
 
-/* Обнуление отступов и полей */
-* {
+/* Устанавливаем фон на всю страницу */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Установка размеров для всей страницы */
-html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/1600x900/?nature'); /* Замените URL на нужное вам изображение */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Фиксированное изображение для эффекта параллакса */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-}
-
-/* Блок для фона с видео */
-.background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.background-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Стили для контента */
-.content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
+    font-family: Arial, sans-serif;
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Стиль для контейнера с контентом */
+.content {
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон для контента */
     padding: 20px;
     border-radius: 8px;
+    text-align: center;
     max-width: 500px;
 }
 
@@ -56,7 +35,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* Стили для кнопки */
+/* Стили для кнопки регистрации */
 .register-button {
     text-decoration: none;
     font-size: 1.1rem;

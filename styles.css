@@ -1,119 +1,61 @@
-/* Основные стили */
-body {
+/* Общие стили */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Навигационное меню */
-nav {
-    background-color: #333;
-    padding: 10px;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.nav-links li {
-    margin: 0;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    transition: background 0.5s, color 0.5s; /* Плавный переход для фона и цвета */
 }
 
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s;
-}
-
-.nav-links .button {
-    background-color: #007BFF;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-
-.nav-links a:hover {
-    background-color: #575757;
-}
-
-/* Слайдер */
-.slider {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.slides {
-    display: none;
-}
-
-.slides img {
-    width: 100%;
-}
-
-.dots {
-    text-align: center;
+header {
+    background: #333;
+    color: #fff;
     padding: 10px 0;
 }
 
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
-.dot.active {
-    background-color: #717171;
+.nav-links li {
+    margin: 0 15px;
 }
 
-/* О нас */
-.about, .contact {
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Тема по умолчанию */
+body.default {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Темная тема */
+body.dark {
+    background: #333;
+    color: #f0f0f0;
+}
+
+.hero {
     padding: 20px;
     text-align: center;
 }
 
-h2 {
-    margin-top: 0;
+.content {
+    padding: 20px;
 }
 
-/* Контактная форма */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #007BFF;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Нижний колонтитул */
 footer {
+    background: #333;
+    color: #fff;
     text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #ffffff;
+    padding: 10px 0;
 }

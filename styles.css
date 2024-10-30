@@ -1,3 +1,4 @@
+
 /* Общие стили */
 * {
     margin: 0;
@@ -7,110 +8,67 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    transition: background 0.5s, color 0.5s;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.nav-links {
-    list-style: none;
+    background: #f0f0f0;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.nav-links li {
-    margin: 0 15px;
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6b6b;
-}
-
-.hero {
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    color: white;
-    padding: 100px 20px;
+h1 {
     text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.cta-button {
-    background: #fff;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.cta-button:hover {
-    background: #ff6b6b;
-    color: white;
+label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.features {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.features h2 {
-    margin-bottom: 20px;
-}
-
-.feature {
-    margin: 20px 0;
-    padding: 20px;
+input {
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    transition: transform 0.3s;
 }
 
-.feature:hover {
-    transform: scale(1.05);
+input:focus {
+    border-color: #ff6b6b;
 }
 
-footer {
-    background: #333;
-    color: #fff;
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #f06595;
+}
+
+.login-link {
     text-align: center;
-    padding: 10px 0;
+    margin-top: 15px;
 }
 
-/* Темная тема */
-body.dark {
-    background: #222;
-    color: #f0f0f0;
+.login-link a {
+    color: #ff6b6b;
+    text-decoration: none;
 }
-
-.hero.dark {
-    background: linear-gradient(45deg, #6b6bff, #f06595);
-}
-
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-

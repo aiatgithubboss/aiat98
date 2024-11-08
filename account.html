@@ -4,36 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Сброс стилей и общие настройки */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: 'Roboto', sans-serif;
-            background: #f4f7fc;
+            background-color: #f4f7fc;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            margin: 0;
         }
         .dashboard-container {
-            background: #fff;
+            background: white;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
             width: 100%;
             max-width: 450px;
-            text-align: center;
         }
         h1 {
             font-size: 28px;
             color: #4caf50;
-            margin-bottom: 20px;
         }
         .user-info {
             background-color: #f0f0f0;
@@ -42,9 +34,6 @@
             margin-bottom: 20px;
             text-align: left;
             color: #555;
-        }
-        .user-info p {
-            margin-bottom: 10px;
         }
         .btn {
             background-color: #4caf50;
@@ -58,17 +47,10 @@
             width: 100%;
             max-width: 200px;
             margin: 0 auto;
+            display: block;
         }
         .btn:hover {
             background-color: #45a049;
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        .logout-message {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #888;
         }
     </style>
 </head>
@@ -80,7 +62,6 @@
             <p>Электронная почта: <strong id="user-email"></strong></p>
         </div>
         <button onclick="logout()" class="btn">Выйти</button>
-        <p class="logout-message">Нажмите кнопку для выхода из аккаунта.</p>
     </div>
 
     <script>
@@ -92,6 +73,7 @@
         function logout() {
             localStorage.removeItem("username");
             localStorage.removeItem("email");
+            localStorage.removeItem("password"); // Если вы храните пароль
             window.location.href = "index.html"; // Перенаправление на главную страницу
         }
     </script>

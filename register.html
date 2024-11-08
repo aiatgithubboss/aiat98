@@ -1,59 +1,105 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: 'Roboto', sans-serif; background-color: #f0f2f5;">
+<body>
 
-    <div style="background-color: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); max-width: 400px; width: 100%;">
-        <h1 style="text-align: center; margin-bottom: 24px; color: #333;">Регистрация</h1>
-        <form id="registration-form">
-            <div style="margin-bottom: 20px;">
-                <label for="username" style="display: block; margin-bottom: 8px; color: #666;">Имя пользователя:</label>
-                <input type="text" id="username" name="username" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+    <div class="form-container">
+        <h2>Регистрация</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" required>
             </div>
-            <div style="margin-bottom: 20px;">
-                <label for="email" style="display: block; margin-bottom: 8px; color: #666;">Электронная почта:</label>
-                <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div style="margin-bottom: 20px;">
-                <label for="password" style="display: block; margin-bottom: 8px; color: #666;">Пароль:</label>
-                <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <div style="margin-bottom: 20px;">
-                <label for="confirm-password" style="display: block; margin-bottom: 8px; color: #666;">Подтвердите пароль:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <button type="submit" style="width: 100%; padding: 12px; border: none; border-radius: 5px; background-color: #6e8efb; color: #fff; font-size: 16px; font-weight: 700; cursor: pointer;">Зарегистрироваться</button>
-            <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #333;">Уже есть аккаунт? <a href="#" style="color: #6e8efb; text-decoration: none;">Войти</a></p>
+            <button type="submit" class="button">Зарегистрироваться</button>
         </form>
+        <a href="login.html" class="link">Уже есть аккаунт? Войти</a>
     </div>
 
-</body>
-</html>
-
     <script>
-        document.getElementById("registration-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Останавливаем стандартное поведение отправки формы
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            // Выполняем действия регистрации, здесь можно отправить данные на сервер
-            // Пример: условие успешной регистрации
             const username = document.getElementById("username").value;
             const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-            if (username && email) {  // Имитация успешной регистрации
-                // Сохраните данные пользователя в localStorage или sessionStorage, если нужно
-                localStorage.setItem("username", username);
-                localStorage.setItem("email", email);
+            // Сохраняем данные в localStorage (для простоты)
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
 
-                // Перенаправляем на страницу личного кабинета
-                window.location.href = "account.html";
-            }
+            // Перенаправляем на страницу входа
+            window.location.href = "login.html";
         });
     </script>
+
 </body>
 </html>

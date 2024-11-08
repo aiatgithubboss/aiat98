@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
     <style>
+        /* Стили для личного кабинета */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f7fc;
@@ -55,6 +56,7 @@
     </style>
 </head>
 <body>
+
     <div class="dashboard-container">
         <h1>Личный кабинет</h1>
         <div class="user-info">
@@ -74,8 +76,4 @@
             localStorage.removeItem("username");
             localStorage.removeItem("email");
             localStorage.removeItem("password"); // Если вы храните пароль
-            window.location.href = "index.html"; // Перенаправление на главную страницу
-        }
-    </script>
-</body>
-</html>
+            window.location.href = "index.html";

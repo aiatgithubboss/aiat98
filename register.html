@@ -35,3 +35,56 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ваши стили */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registration-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Останавливаем стандартное поведение отправки формы
+
+            // Выполняем действия регистрации, здесь можно отправить данные на сервер
+            // Пример: условие успешной регистрации
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+
+            if (username && email) {  // Имитация успешной регистрации
+                // Сохраните данные пользователя в localStorage или sessionStorage, если нужно
+                localStorage.setItem("username", username);
+                localStorage.setItem("email", email);
+
+                // Перенаправляем на страницу личного кабинета
+                window.location.href = "account.html";
+            }
+        });
+    </script>
+</body>
+</html>

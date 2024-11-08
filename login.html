@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Добавьте стили для формы входа */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Вход в систему</h1>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Электронная почта" required>
+            <input type="password" id="login-password" placeholder="Пароль" required>
+            <button type="submit" class="btn">Войти</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Останавливаем стандартное поведение формы
+
+            // Получаем данные из формы
+            var email = document.getElementById("login-email").value;
+            var password = document.getElementById("login-password").value;
+
+            // Проверяем правильность данных (для простоты проверка на совпадение с данными из localStorage)
+            if (email === localStorage.getItem("email") && password === localStorage.getItem("password")) {
+                // Перенаправляем на страницу личного кабинета
+                window.location.href = "account.html"; // Убедитесь, что этот путь правильный
+            } else {
+                alert("Неверные данные для входа.");
+            }
+        });
+    </script>
+
+</body>
+</html>

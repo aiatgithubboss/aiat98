@@ -91,3 +91,39 @@
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <style>
+        /* Ваши стили */
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Личный кабинет</h1>
+        <div class="user-info">
+            <p>Добро пожаловать, <strong id="user-name"></strong>!</p>
+            <p>Электронная почта: <strong id="user-email"></strong></p>
+        </div>
+        <button onclick="logout()" class="btn">Выйти</button>
+    </div>
+
+    <script>
+        // Получаем данные пользователя из localStorage
+        document.getElementById("user-name").textContent = localStorage.getItem("username");
+        document.getElementById("user-email").textContent = localStorage.getItem("email");
+
+        // Функция выхода, очищает данные и возвращает на страницу регистрации
+        function logout() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            window.location.href = "registration.html"; // Перенаправление на регистрацию
+        }
+    </script>
+</body>
+</html>

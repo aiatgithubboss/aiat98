@@ -88,11 +88,11 @@
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
 
-        // Функция выхода, очищает данные и возвращает на страницу регистрации
+        // Функция выхода, очищает данные и возвращает на главную страницу
         function logout() {
             localStorage.removeItem("username");
             localStorage.removeItem("email");
-            window.location.href = "registration.html"; // Перенаправление на страницу регистрации
+            window.location.href = "index.html"; // Перенаправление на главную страницу
         }
     </script>
 </body>

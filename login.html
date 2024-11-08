@@ -59,6 +59,12 @@
             text-align: center;
             margin-top: 20px;
         }
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -77,9 +83,33 @@
             <button type="submit" class="button">Войти</button>
         </form>
         <a href="register.html" class="link">Нет аккаунта? Зарегистрироваться</a>
+        
+        <!-- Дополнительный блок для отображения данных из localStorage -->
+        <div class="info">
+            <p>Имя пользователя: <span id="stored-username"></span></p>
+            <p>Email: <span id="stored-email"></span></p>
+        </div>
     </div>
 
     <script>
+        // Проверяем и отображаем данные из localStorage (если они есть)
+        window.onload = function() {
+            const storedUsername = localStorage.getItem("username");
+            const storedEmail = localStorage.getItem("email");
+
+            if (storedUsername) {
+                document.getElementById("stored-username").textContent = storedUsername;
+            } else {
+                document.getElementById("stored-username").textContent = "Не зарегистрирован";
+            }
+
+            if (storedEmail) {
+                document.getElementById("stored-email").textContent = storedEmail;
+            } else {
+                document.getElementById("stored-email").textContent = "Не указан";
+            }
+        };
+
         document.getElementById("login-form").addEventListener("submit", function(event) {
             event.preventDefault();
 

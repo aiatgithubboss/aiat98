@@ -7,34 +7,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Стили для кнопок */
-        .nav-links {
-            list-style: none;
-            padding: 0;
+        /* Общие стили для body */
+        body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            text-align: center;
         }
 
-        .nav-links li {
-            margin: 0 10px;
+        /* Стили для контейнера кнопок */
+        .button-container {
+            display: flex;
+            gap: 20px; /* Отступ между кнопками */
         }
 
+        /* Стили для кнопок */
         .button {
             background-color: #4caf50;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 16px;
             transition: background-color 0.3s ease;
         }
 
         .button:hover {
             background-color: #45a049;
         }
+        
+        /* Стили для секции hero */
+        .hero {
+            margin-top: 30px;
+        }
+
+        /* Навигационные ссылки */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <ul class="nav-links">
@@ -54,28 +79,12 @@
             <a href="#" class="cta-button">Узнать больше</a>
         </section>
 
-        <section class="features">
-            <h2>Наши Услуги</h2>
-            <div class="feature">
-                <h3>Дизайн</h3>
-                <p>Создаем уникальные дизайны, которые привлекают внимание.</p>
-            </div>
-            <div class="feature">
-                <h3>Разработка</h3>
-                <p>Разрабатываем функциональные и адаптивные веб-приложения.</p>
-            </div>
-            <div class="feature">
-                <h3>Маркетинг</h3>
-                <p>Помогаем продвигать ваш бизнес в сети.</p>
-            </div>
-        </section>
+        <!-- Контейнер для кнопок регистрации и входа -->
+        <div class="button-container">
+            <a href="register.html" class="button">Регистрация</a>
+            <a href="login.html" class="button">Вход</a>
+        </div>
     </main>
-
-    <!-- Кнопки для входа и регистрации -->
-    <ul class="nav-links">
-        <li><a href="register.html" class="button">Регистрация</a></li>
-        <li><a href="login.html" class="button">Вход</a></li>
-    </ul>
 
     <footer>
         <p>&copy; 2024 Мой Веб-Сайт. Все права защищены. Разработчик: Aiat1998</p>

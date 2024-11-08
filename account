@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .dashboard-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-settings {
+            background-color: #6e8efb;
+            color: #fff;
+        }
+
+        .btn-settings:hover {
+            background-color: #5a79d7;
+        }
+
+        .btn-logout {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+
+        .btn-logout:hover {
+            background-color: #d43a3a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Личный кабинет</h1>
+        <div class="user-info">
+            <p>Добро пожаловать, <strong>Имя пользователя</strong>!</p>
+            <p>Электронная почта: <strong>user@example.com</strong></p>
+        </div>
+        <button class="btn btn-settings">Настройки профиля</button>
+        <button class="btn btn-logout">Выйти</button>
+    </div>
+
+</body>
+</html>

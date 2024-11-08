@@ -88,6 +88,17 @@
         <button class="btn btn-settings">Настройки профиля</button>
         <button class="btn btn-logout">Выйти</button>
     </div>
+    
+<script>
+document.getElementById("registration-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Останавливаем стандартное поведение отправки формы
 
+            // Логика регистрации (например, отправка данных на сервер)
+            // В данном случае предполагается, что регистрация успешна
+            
+            // Перенаправляем на страницу личного кабинета
+            window.location.href = "account.html";
+        });
+    </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,60 +7,8 @@
     <title>Мой Веб-Сайт</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Общие стили для body */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
-        /* Стили для контейнера кнопок */
-        .button-container {
-            display: flex;
-            gap: 20px; /* Отступ между кнопками */
-        }
-
-        /* Стили для кнопок */
-        .button {
-            background-color: #4caf50;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-        
-        /* Стили для секции hero */
-        .hero {
-            margin-top: 30px;
-        }
-
-        /* Навигационные ссылки */
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            margin: 0 10px;
-        }
-    </style>
 </head>
 <body>
-
     <header>
         <nav>
             <ul class="nav-links">
@@ -74,21 +23,35 @@
 
     <main>
         <section class="hero">
-            <h1>Добро пожаловать на наш стильный сайт!</h1>
+            <h1>Добро пожаловать на мой сайт!</h1>
             <p>Создавайте свою онлайн-историю с нами.</p>
             <a href="#" class="cta-button">Узнать больше</a>
         </section>
 
-        <!-- Контейнер для кнопок регистрации и входа -->
-        <div class="button-container">
-            <a href="register.html" class="button">Регистрация</a>
-            <a href="login.html" class="button">Вход</a>
-        </div>
+        <section class="features">
+            <h2>Наши Услуги</h2>
+            <div class="feature">
+                <h3>Дизайн</h3>
+                <p>Создаем уникальные дизайны, которые привлекают внимание.</p>
+            </div>
+            <div class="feature">
+                <h3>Разработка</h3>
+                <p>Разрабатываем функциональные и адаптивные веб-приложения.</p>
+            </div>
+            <div class="feature">
+                <h3>Маркетинг</h3>
+                <p>Помогаем продвигать ваш бизнес в сети.</p>
+            </div>
+        </section>
     </main>
-
+   <li><a href="register.html" class="button">Регистрация</a></li>
+   <li><a href="login.html" class="button">Вход</a></li>
     <footer>
-        <p>&copy; 2024 Мой Веб-Сайт. Все права защищены. Разработчик: Aiat1998</p>
+        <p>&copy; 2024 Мой Веб-Сайт. Все права защищены разработчик:Aiat1998</p>
     </footer>
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>

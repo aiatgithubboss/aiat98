@@ -117,8 +117,43 @@
             e.preventDefault();
             let valid = true;
 
-            // Получаем значения
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
             // Очи
+
+            <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let valid = true;
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Очищаем ошибки
+        document.getElementById('email-error').textContent = '';
+        document.getElementById('password-error').textContent = '';
+
+        // Получаем сохраненные данные пользователя
+        const savedEmail = localStorage.getItem('email');
+        const savedPassword = localStorage.getItem('password');
+
+        // Проверяем, есть ли сохраненные данные
+        if (!savedEmail || !savedPassword) {
+            document.getElementById('email-error').textContent = 'Пользователь не зарегистрирован';
+            valid = false;
+        } else {
+            // Проверка соответствия данных
+            if (email !== savedEmail) {
+                document.getElementById('email-error').textContent = 'Электронная почта не найдена';
+                valid = false;
+            }
+            if (password !== savedPassword) {
+                document.getElementById('password-error').textContent = 'Неправильный пароль';
+                valid = false;
+            }
+        }
+
+        // Если все проверено, переходим в личный кабинет
+        if (valid) {
+            window.location.href = 'dashboard.html';
+        }
+    });
+</script>

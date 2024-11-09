@@ -91,7 +91,7 @@
         <!-- Галерея изображений -->
         <div class="gallery">
             <h2>Галерея изображений</h2>
-            <!-- Пример изображения -->
+            <!-- Пример изображений -->
             <img src="https://via.placeholder.com/200" alt="Image 1">
             <img src="https://via.placeholder.com/200" alt="Image 2">
             <img src="https://via.placeholder.com/200" alt="Image 3">
@@ -100,61 +100,35 @@
 
         <!-- Настройки -->
         <div class="settings">
-            <h2>Настройки профиля</h2>
-            <input type="text" id="new-username" placeholder="Новое имя пользователя">
-            <input type="email" id="new-email" placeholder="Новый email">
-            <button onclick="saveSettings()">Сохранить изменения</button>
+            <h2>Настройки</h2>
+            <input type="text" placeholder="Изменить имя пользователя" id="change-username">
+            <input type="email" placeholder="Изменить электронную почту" id="change-email">
+            <button onclick="updateSettings()">Сохранить изменения</button>
         </div>
 
-        <!-- Кнопка выхода -->
         <div class="logout">
             <button onclick="logout()">Выйти</button>
         </div>
     </div>
 
     <script>
-        // Проверка данных перед входом
-        window.onload = function() {
-            const username = localStorage.getItem("username");
-            const email = localStorage.getItem("email");
-            const registrationDate = localStorage.getItem("registrationDate");
+        // Пример заполнения профиля (вы можете заменить на динамические данные)
+        document.getElementById('username').innerText = 'Иван Иванов';
+        document.getElementById('email').innerText = 'ivan@domain.com';
+        document.getElementById('registration-date').innerText = '01.01.2022';
 
-            // Если данных нет, перенаправляем на страницу входа
-            if (!username || !email || !registrationDate) {
-                window.location.href = "login.html"; // Перенаправление на страницу входа
-            }
+        function updateSettings() {
+            const newUsername = document.getElementById('change-username').value;
+            const newEmail = document.getElementById('change-email').value;
 
-            // Отображение данных профиля
-            document.getElementById("username").textContent = username || "Не указано";
-            document.getElementById("email").textContent = email || "Не указано";
-            document.getElementById("registration-date").textContent = registrationDate || "Не указано";
-        };
-
-        // Функция для сохранения настроек
-        function saveSettings() {
-            const newUsername = document.getElementById("new-username").value;
-            const newEmail = document.getElementById("new-email").value;
-
-            if (newUsername) {
-                localStorage.setItem("username", newUsername);
-            }
-
-            if (newEmail) {
-                localStorage.setItem("email", newEmail);
-            }
-
-            alert("Настройки успешно сохранены!");
-            // Обновление информации на странице
-            document.getElementById("username").textContent = newUsername || "Не указано";
-            document.getElementById("email").textContent = newEmail || "Не указано";
+            // Реакция на обновления (например, отправка на сервер)
+            alert(`Изменено:\nИмя пользователя: ${newUsername}\nЭлектронная почта: ${newEmail}`);
         }
 
-        // Функция для выхода
         function logout() {
-            localStorage.removeItem("username");
-            localStorage.removeItem("email");
-            localStorage.removeItem("registrationDate");
-            window.location.href = "index.html"; // Перенаправление на главную страницу
+            // Реализация выхода из аккаунта
+            alert('Вы вышли из аккаунта');
+            // Возможно, редирект на страницу входа
         }
     </script>
 

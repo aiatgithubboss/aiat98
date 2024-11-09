@@ -6,7 +6,6 @@
     <title>Личный кабинет</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
         * {
             margin: 0;
             padding: 0;
@@ -162,60 +161,6 @@
         .modal button:hover {
             background: #45a049;
         }
-
-        /* Рекламные блоки */
-        .ads-container {
-            margin-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .ad-block {
-            background: #f9f9f9;
-            padding: 20px;
-            width: 100%;
-            max-width: 380px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .ad-block img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .ad-block a {
-            color: #3498db;
-            font-size: 16px;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .dashboard-container {
-                max-width: 90%;
-                padding: 20px;
-            }
-
-            .ads-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .ad-block {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -242,22 +187,6 @@
                 <button id="save-note-btn">Сохранить заметку</button>
             </div>
         </div>
-
-        <!-- Рекламные блоки -->
-        <div class="ads-container">
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/380x150" alt="Реклама 1">
-                <a href="#">Узнайте больше о наших продуктах!</a>
-            </div>
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/380x150" alt="Реклама 2">
-                <a href="#">Скидки на все товары!</a>
-            </div>
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
-                <a href="#">Подпишитесь на нашу рассылку!</a>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -271,7 +200,33 @@
             message.classList.add("visible");
 
             // Без задержки сразу перенаправляем
-            window.location.href = "index.html";
+            window.location.href = "index.html"; // Здесь можно указать нужный путь
         });
 
-        //
+        // Функция для открытия модального окна
+        document.getElementById("add-note-btn").addEventListener("click", function() {
+            document.getElementById("noteModal").style.display = "flex";
+        });
+
+        // Функция для сохранения заметки
+        document.getElementById("save-note-btn").addEventListener("click", function() {
+            const noteText = document.getElementById("noteText").value;
+            if (noteText.trim() !== "") {
+                alert("Заметка сохранена!");
+                document.getElementById("noteText").value = ""; // Очистить поле
+                document.getElementById("noteModal").style.display = "none"; // Закрыть модальное окно
+            } else {
+                alert("Пожалуйста, введите заметку.");
+            }
+        });
+
+        // Закрытие модального окна при клике вне окна
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("noteModal")) {
+                document.getElementById("noteModal").style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

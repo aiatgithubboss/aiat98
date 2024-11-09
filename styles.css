@@ -1,3 +1,4 @@
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +8,48 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f9f9f9;
+    background-color: #f2f2f2;
+    line-height: 1.6;
 }
 
 /* Шапка и навигация */
 header {
-    background-color: #333;
+    background: linear-gradient(135deg, #1e90ff, #ff6347);
     color: #fff;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: center;
     gap: 20px;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     padding: 10px 15px;
-    transition: color 0.3s;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #ff6347;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #theme-toggle {
@@ -42,82 +57,95 @@ header {
     color: #fff;
     border: none;
     padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 #theme-toggle:hover {
     background-color: #ff4500;
+    transform: scale(1.1);
 }
 
 /* Кнопки Регистрация и Вход */
 .nav-links .button {
-    background-color: #ff6347;
+    background: linear-gradient(135deg, #ff6347, #1e90ff);
     color: #fff;
     padding: 8px 15px;
-    border-radius: 20px;
-    text-decoration: none;
+    border-radius: 25px;
     font-weight: bold;
-    margin-left: 10px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: transform 0.3s;
 }
 
 .nav-links .button:hover {
-    background-color: #ff4500;
     transform: scale(1.1);
 }
 
 /* Герой-секция */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('background.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') center/cover no-repeat;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 150px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero h1 {
     font-size: 3em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.25em;
+    max-width: 600px;
+    margin-bottom: 30px;
 }
 
 .cta-button {
-    background-color: #ff6347;
+    background: linear-gradient(135deg, #ff6347, #1e90ff);
     color: #fff;
     padding: 15px 30px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: transform 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #ff4500;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* Услуги */
 .features {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background-color: #fff;
 }
 
 .features h2 {
     font-size: 2.5em;
-    margin-bottom: 20px;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .feature {
-    background-color: #fff;
+    background-color: #f2f2f2;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .feature:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .feature h3 {
@@ -128,7 +156,7 @@ header {
 
 /* Футер */
 footer {
-    background-color: #333;
+    background: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -136,4 +164,27 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    
+    .hero p {
+        font-size: 1.1em;
+    }
+    
+    .features {
+        padding: 40px 10px;
+    }
+    
+    .feature {
+        margin: 10px;
+    }
 }

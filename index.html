@@ -158,51 +158,6 @@
                 font-size: 1em;
             }
         }
-
-        /* Стили для форм */
-        .form-container {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-            color: white;
-        }
-
-        .form-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
-            color: #333;
-        }
-
-        .form-container button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #ffd700;
-            color: #333;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .form-container button:hover {
-            background-color: #ffa700;
-        }
-
-        .form-container .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -232,31 +187,18 @@
         </div>
     </div>
 
-    <!-- Модальное окно для регистрации -->
-    <div id="registerForm" class="form-container">
-        <span class="close-btn" onclick="closeForm('registerForm')">×</span>
-        <h3>Регистрация</h3>
-        <input type="text" id="registerUsername" placeholder="Имя пользователя" required>
-        <input type="password" id="registerPassword" placeholder="Пароль" required>
-        <button onclick="register()">Зарегистрироваться</button>
-    </div>
-
-    <!-- Модальное окно для входа -->
-    <div id="loginForm" class="form-container">
-        <span class="close-btn" onclick="closeForm('loginForm')">×</span>
-        <h3>Вход</h3>
-        <input type="text" id="loginUsername" placeholder="Имя пользователя" required>
-        <input type="password" id="loginPassword" placeholder="Пароль" required>
-        <button onclick="login()">Войти</button>
-    </div>
-    
     <!-- Кнопки "Регистрация" и "Вход" всегда внизу страницы -->
     <div class="buttons-container">
-        <button class="register-btn" onclick="showForm('registerForm')">Регистрация</button>
-        <button class="login-btn" onclick="showForm('loginForm')">Вход</button>
+        <!-- Кнопка регистрации, направляет на страницу регистрации -->
+        <a href="register.html">
+            <button class="register-btn">Регистрация</button>
+        </a>
+        
+        <!-- Кнопка входа, направляет на страницу входа -->
+        <a href="login.html">
+            <button class="login-btn">Вход</button>
+        </a>
     </div>
 
-    <script>
-        // Функция для показа модального окна
-        function showForm(formId) {
-            document.getElementBy
+</body>
+</html>

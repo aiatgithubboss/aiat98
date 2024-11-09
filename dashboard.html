@@ -268,8 +268,13 @@
                 <a href="#">Скидки на все товары!</a>
             </div>
             <div class="ad-block">
-                <img src="https
-        script>
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
+                <a href="#">Подпишитесь на нашу рассылку!</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
         // Загрузка данных пользователя из localStorage
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
@@ -277,41 +282,4 @@
         // Функция для выхода
         document.getElementById("logout-btn").addEventListener("click", function() {
             const message = document.getElementById("logout-message");
-            message.classList.add("visible");
-            // Перенаправление на главную страницу
-            window.location.href = "index.html"; 
-        });
-
-        // Открытие модального окна
-        const noteModal = document.getElementById("noteModal");
-        document.getElementById("add-note-btn").addEventListener("click", function() {
-            noteModal.style.display = "flex";
-        });
-
-        // Закрытие модального окна
-        document.getElementById("close-modal-btn").addEventListener("click", function() {
-            noteModal.style.display = "none";
-        });
-
-        // Сохранение заметки
-        document.getElementById("save-note-btn").addEventListener("click", function() {
-            const noteText = document.getElementById("noteText").value;
-            if (noteText) {
-                localStorage.setItem("userNote", noteText);
-                alert("Заметка сохранена!");
-                document.getElementById("noteText").value = ""; // Очистить поле
-                noteModal.style.display = "none"; // Закрыть модальное окно
-            } else {
-                alert("Пожалуйста, введите текст заметки.");
-            }
-        });
-
-        // Закрытие модального окна при клике вне его
-        window.onclick = function(event) {
-            if (event.target == noteModal) {
-                noteModal.style.display = "none";
-            }
-        }
-    </script>
-</body>
-</html>
+            message.classList

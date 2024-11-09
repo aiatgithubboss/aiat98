@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Добро пожаловать в Личный Кабинет</h1>
+        </header>
+
+        <!-- Профиль -->
+        <div class="profile-info">
+            <h2>Информация о профиле</h2>
+            <p>Имя пользователя: <span id="username"></span></p>
+            <p>Электронная почта: <span id="email"></span></p>
+            <p>Дата регистрации: <span id="registration-date"></span></p>
+        </div>
+
+        <!-- Галерея изображений -->
+        <div class="gallery">
+            <h2>Галерея изображений</h2>
+            <img src="https://via.placeholder.com/200" alt="Image 1">
+            <img src="https://via.placeholder.com/200" alt="Image 2">
+            <img src="https://via.placeholder.com/200" alt="Image 3">
+            <img src="https://via.placeholder.com/200" alt="Image 4">
+        </div>
+
+        <!-- Настройки -->
+        <div class="settings">
+            <h2>Настройки профиля</h2>
+            <input type="text" id="new-username" placeholder="Новое имя пользователя">
+            <input type="email" id="new-email" placeholder="Новый email">
+            <button onclick="saveSettings()">Сохранить изменения</button>
+        </div>
+
+        <!-- Кнопка выхода -->
+        <div class="logout">
+            <button onclick="logout()">Выйти</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const username = localStorage.getItem("username");
+            const email = localStorage.getItem("email");
+            const registrationDate = localStorage.getItem("registrationDate");
+
+            // Если данные не сохранены, перенаправляем на страницу входа
+            if (!username || !email || !registrationDate) {
+                window.location.href = "login.html";
+            }
+
+            document.getElementById("username").textContent = username || "Не указано";
+            document.getElementById("email").textContent = email || "Не указано";
+            document.getElementById("registration-date").textContent = registrationDate || "Не указано";
+        };
+
+        function saveSettings() {
+            const newUsername = document.getElementById("new-username").value;
+            const newEmail = document.getElementById("new-email").value;
+
+            if (newUsername) {
+                localStorage.setItem("username", newUsername);
+            }
+
+            if (newEmail) {
+                localStorage.setItem("email", newEmail);
+            }
+
+            alert("Настройки успешно сохранены!");
+            // Обновление информации на странице
+            document.getElementById("username").textContent = newUsername || "Не указано";
+            document.getElementById("email").textContent = newEmail || "Не указано";
+        }
+
+        function logout() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            localStorage.removeItem("registrationDate");
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>

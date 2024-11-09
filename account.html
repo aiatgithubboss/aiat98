@@ -147,13 +147,15 @@
             <p>Подписка: <strong>Премиум</strong></p>
             <p>Дата окончания: <strong>25.12.2024</strong></p>
         </div>
-    </div>
-
+    
     <script>
         // Получаем данные пользователя из localStorage
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
-
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        alert("Данные сохранены!");
         // Функция выхода, очищает данные и возвращает на главную страницу
         function logout() {
             localStorage.removeItem("username");

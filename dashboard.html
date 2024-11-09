@@ -103,6 +103,68 @@
         .message.visible {
             opacity: 1;
         }
+
+        /* Модальное окно для заметок */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .modal button {
+            background: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .modal button:hover {
+            background: #45a049;
+        }
+
+        .note-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        .note-btn:hover {
+            background-color: #2980b9;
+        }
+
     </style>
 </head>
 <body>
@@ -113,8 +175,20 @@
             <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
             <p>Электронная почта: <strong id="user-email">...</strong></p>
         </div>
+
         <button onclick="logout()" class="btn">Выйти</button>
         <p id="logout-message" class="message">Вы успешно вышли!</p>
+
+        <button class="note-btn" onclick="openNoteModal()">Добавить заметку</button>
+    </div>
+
+    <!-- Модальное окно для добавления заметки -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <h3>Добавить заметку</h3>
+            <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
+            <button onclick="saveNote()">Сохранить заметку</button>
+        </div>
     </div>
 
     <script>
@@ -124,14 +198,45 @@
 
         // Функция для выхода (оставляем данные в localStorage и показываем сообщение)
         function logout() {
-            // Сообщение об успешном выходе
             const message = document.getElementById("logout-message");
             message.classList.add("visible");
 
-            // Перенаправление через 2 секунды на главную страницу
             setTimeout(() => {
                 window.location.href = "index.html";
             }, 2000);
+        }
+
+        // Функция для открытия модального окна
+        function openNoteModal() {
+            document.getElementById("noteModal").style.display = "flex";
+        }
+
+        // Функция для сохранения заметки
+        function saveNote() {
+            const noteText = document.getElementById("noteText").value;
+            if (noteText.trim()) {
+                // Сохраняем заметку в localStorage
+                localStorage.setItem("note", noteText);
+                alert("Заметка сохранена!");
+                document.getElementById("noteModal").style.display = "none";
+            } else {
+                alert("Пожалуйста, введите текст заметки.");
+            }
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("noteModal")) {
+                document.getElementById("noteModal").style.display = "none";
+            }
+        }
+
+        // При загрузке страницы, если есть заметка в localStorage, выводим её
+        window.onload = function() {
+            const savedNote = localStorage.getItem("note");
+            if (savedNote) {
+                alert("Ваша заметка: " + savedNote);
+            }
         }
     </script>
 

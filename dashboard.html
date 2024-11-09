@@ -18,10 +18,20 @@
             background-color: #eef2f5;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
+            height: 100%;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
         }
 
         .dashboard-container {
@@ -29,10 +39,10 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            text-align: center;
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 40px;
         }
 
         .dashboard-container:hover {
@@ -45,6 +55,7 @@
             color: #34495e;
             margin-bottom: 20px;
             font-weight: 600;
+            text-align: center;
         }
 
         .user-info {
@@ -98,6 +109,7 @@
             margin-top: 10px;
             opacity: 0;
             transition: opacity 0.5s;
+            text-align: center;
         }
 
         .message.visible {
@@ -151,29 +163,20 @@
             background: #45a049;
         }
 
-        .note-btn {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 30px;
-        }
-
-        .note-btn:hover {
-            background-color: #2980b9;
-        }
-
         /* Рекламные блоки */
         .ads-container {
             margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .ad-block {
             background: #f9f9f9;
             padding: 20px;
-            margin-bottom: 15px;
+            width: 100%;
+            max-width: 380px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             text-align: center;
@@ -192,45 +195,68 @@
             display: inline-block;
         }
 
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .dashboard-container {
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            .ads-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ad-block {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
-        <h1>Личный кабинет</h1>
-        <div class="user-info">
-            <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
-            <p>Электронная почта: <strong id="user-email">...</strong></p>
+    <div class="container">
+        <div class="dashboard-container">
+            <h1>Личный кабинет</h1>
+            <div class="user-info">
+                <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
+                <p>Электронная почта: <strong id="user-email">...</strong></p>
+            </div>
+
+            <button onclick="logout()" class="btn">Выйти</button>
+            <p id="logout-message" class="message">Вы успешно вышли!</p>
+
+            <button class="btn" onclick="openNoteModal()">Добавить заметку</button>
         </div>
 
-        <button onclick="logout()" class="btn">Выйти</button>
-        <p id="logout-message" class="message">Вы успешно вышли!</p>
-
-        <button class="note-btn" onclick="openNoteModal()">Добавить заметку</button>
-    </div>
-
-    <!-- Модальное окно для добавления заметки -->
-    <div id="noteModal" class="modal">
-        <div class="modal-content">
-            <h3>Добавить заметку</h3>
-            <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
-            <button onclick="saveNote()">Сохранить заметку</button>
+        <!-- Модальное окно для добавления заметки -->
+        <div id="noteModal" class="modal">
+            <div class="modal-content">
+                <h3>Добавить заметку</h3>
+                <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
+                <button onclick="saveNote()">Сохранить заметку</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Рекламные блоки -->
-    <div class="ads-container">
-        <div class="ad-block">
-            <img src="https://via.placeholder.com/400x150" alt="Реклама 1">
-            <a href="#">Узнайте больше о наших продуктах!</a>
-        </div>
-        <div class="ad-block">
-            <img src="https://via.placeholder.com/400x150" alt="Реклама 2">
-            <a href="#">Скидки на все товары!</a>
-        </div>
-        <div class="ad-block">
-            <img src="https://via.placeholder.com/400x150" alt="Реклама 3">
-            <a href="#">Подпишитесь на нашу рассылку!</a>
+        <!-- Рекламные блоки -->
+        <div class="ads-container">
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 1">
+                <a href="#">Узнайте больше о наших продуктах!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 2">
+                <a href="#">Скидки на все товары!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
+                <a href="#">Подпишитесь на нашу рассылку!</a>
+            </div>
         </div>
     </div>
 
@@ -255,18 +281,3 @@
         }
 
         // Функция для сохранения заметки
-        function saveNote() {
-            const noteText = document.getElementById("noteText").value;
-            if (noteText.trim()) {
-                // Сохраняем заметку в localStorage
-                localStorage.setItem("note", noteText);
-                alert("Заметка сохранена!");
-                document.getElementById("noteModal").style.display = "none";
-            } else {
-                alert("Пожалуйста, введите текст заметки.");
-            }
-        }
-
-        // Закрытие модального окна при клике вне его
-        window.onclick = function(event) {
-            if (event.target === document

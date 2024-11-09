@@ -270,9 +270,8 @@
             const message = document.getElementById("logout-message");
             message.classList.add("visible");
 
-            setTimeout(() => {
-                window.location.href = "index.html";
-            }, 2000);
+            // Без задержки сразу перенаправляем
+            window.location.href = "index.html";
         }
 
         // Функция для открытия модального окна
@@ -281,3 +280,9 @@
         }
 
         // Функция для сохранения заметки
+        function saveNote() {
+            const noteText = document.getElementById("noteText").value;
+            if (noteText.trim() !== "") {
+                alert("Заметка сохранена!");
+                document.getElementById("noteText").value = ""; // Очистить поле
+                document.getElementById("note

@@ -1,45 +1,262 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Веб-Сайт</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Главная страница</title>
+    <style>
+        /* Общие стили для страницы */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1b1b1b, #333);
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            border: none;
+            background-color: #ffd700;
+            color: #333;
+            padding: 0 20px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .info-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ad-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .ad-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            font-size: 1em;
+            color: #ffd700;
+        }
+
+        /* Кнопки регистрации и входа закреплены внизу */
+        .buttons-container {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            border-top: 2px solid #ffd700;
+        }
+
+        .buttons button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 0;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+
+        .register-btn {
+            background: linear-gradient(45deg, #ffdd00, #ffa700);
+            font-weight: bold;
+        }
+
+        .register-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #ffa700, #ffdd00);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #333, #555);
+            color: #ffd700;
+            font-weight: bold;
+            border: 2px solid #ffd700;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+            background: #ffd700;
+            color: #333;
+        }
+
+        /* Мобильная версия - уменьшение кнопок */
+        @media (max-width: 600px) {
+            .buttons button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        /* Стили для форм */
+        .form-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            color: white;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ffd700;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background-color: #ffa700;
+        }
+
+        .form-container .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Мой Веб-Сайт</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Услуги</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <!-- Логотип сайта -->
+        <div class="logo">Мой Сайт</div>
+        
+        <!-- Строка поиска над панелью -->
+        <div class="search-bar">
+            <input type="text" placeholder="Введите запрос...">
+            <button type="submit">Поиск</button>
         </div>
-    </header>
+        
+        <!-- Информационная панель -->
+        <div class="info-panel">
+            Добро пожаловать на наш сайт! Здесь вы найдете интересные и полезные материалы, а также сможете воспользоваться удобным поиском. Зарегистрируйтесь, чтобы получить доступ ко всем функциям.
+        </div>
 
-    <main>
-        <section class="hero">
-            <h2>Простота. Элегантность. Стиль.</h2>
-            <p>Ваш лучший выбор для современного веб-дизайна.</p>
-            <a href="register.html" class="cta-button">Регистрация</a>
-            <a href="login.html" class="cta-button">Вход</a>
+        <!-- Рекламные панели -->
+        <div class="ad-container">
+            <div class="ad-panel">Реклама 1</div>
+            <div class="ad-panel">Реклама 2</div>
+            <div class="ad-panel">Реклама 3</div>
+            <div class="ad-panel">Реклама 4</div>
+            <div class="ad-panel">Реклама 5</div>
+            <div class="ad-panel">Реклама 6</div>
+        </div>
+    </div>
 
-            <!-- Вставка видео -->
-            <div class="video-container">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/ваш_код_видео" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
+    <!-- Модальное окно для регистрации -->
+    <div id="registerForm" class="form-container">
+        <span class="close-btn" onclick="closeForm('registerForm')">×</span>
+        <h3>Регистрация</h3>
+        <input type="text" id="registerUsername" placeholder="Имя пользователя" required>
+        <input type="password" id="registerPassword" placeholder="Пароль" required>
+        <button onclick="register()">Зарегистрироваться</button>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Мой Веб-Сайт</p>
-    </footer>
+    <!-- Модальное окно для входа -->
+    <div id="loginForm" class="form-container">
+        <span class="close-btn" onclick="closeForm('loginForm')">×</span>
+        <h3>Вход</h3>
+        <input type="text" id="loginUsername" placeholder="Имя пользователя" required>
+        <input type="password" id="loginPassword" placeholder="Пароль" required>
+        <button onclick="login()">Войти</button>
+    </div>
+    
+    <!-- Кнопки "Регистрация" и "Вход" всегда внизу страницы -->
+    <div class="buttons-container">
+        <button class="register-btn" onclick="showForm('registerForm')">Регистрация</button>
+        <button class="login-btn" onclick="showForm('loginForm')">Вход</button>
+    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        // Функция для показа модального окна
+        function showForm(formId) {
+            document.getElementBy

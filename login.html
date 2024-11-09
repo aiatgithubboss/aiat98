@@ -111,26 +111,43 @@
         </div>
     </div>
 
-    <script>
-        // Пример заполнения профиля (вы можете заменить на динамические данные)
-        document.getElementById('username').innerText = 'Иван Иванов';
-        document.getElementById('email').innerText = 'ivan@domain.com';
-        document.getElementById('registration-date').innerText = '01.01.2022';
+Чтобы при нажатии на кнопку выхода осуществлять редирект на главную страницу, необходимо заменить функцию `logout` на следующую:
 
-        function updateSettings() {
-            const newUsername = document.getElementById('change-username').value;
-            const newEmail = document.getElementById('change-email').value;
+```javascript
+function logout() {
+    // Реализация выхода из аккаунта
+    alert('Вы вышли из аккаунта');
+    // Редирект на главную страницу (например, index.html)
+    window.location.href = 'index.html'; // Замените 'index.html' на нужный URL
+}
+```
 
-            // Реакция на обновления (например, отправка на сервер)
-            alert(`Изменено:\nИмя пользователя: ${newUsername}\nЭлектронная почта: ${newEmail}`);
-        }
+Полный код блока с обновленным JavaScript будет выглядеть следующим образом:
 
-        function logout() {
-            // Реализация выхода из аккаунта
-            alert('Вы вышли из аккаунта');
-            // Возможно, редирект на страницу входа
-        }
-    </script>
+```html
+<div class="logout">
+    <button onclick="logout()">Выйти</button>
+</div>
 
-</body>
-</html>
+<script>
+    // Пример заполнения профиля (вы можете заменить на динамические данные)
+    document.getElementById('username').innerText = 'Иван Иванов';
+    document.getElementById('email').innerText = 'ivan@domain.com';
+    document.getElementById('registration-date').innerText = '01.01.2022';
+
+    function updateSettings() {
+        const newUsername = document.getElementById('change-username').value;
+        const newEmail = document.getElementById('change-email').value;
+
+        // Реакция на обновления (например, отправка на сервер)
+        alert(`Изменено:\nИмя пользователя: ${newUsername}\nЭлектронная почта: ${newEmail}`);
+    }
+
+    function logout() {
+        // Реализация выхода из аккаунта
+        alert('Вы вышли из аккаунта');
+        // Редирект на главную страницу (например, index.html)
+        window.location.href = 'index.html'; // Замените на URL главной страницы
+    }
+</script>
+

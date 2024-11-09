@@ -6,7 +6,71 @@
     <title>Личный кабинет</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Стили остаются такими же, как в предыдущем коде */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-info, .gallery, .settings {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .profile-info h2, .gallery h2, .settings h2 {
+            margin-top: 0;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .settings input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .settings button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .settings button:hover {
+            background-color: #45a049;
+        }
+        .logout {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -49,17 +113,18 @@
     </div>
 
     <script>
-        // Проверка данных перед входом в личный кабинет
+        // Проверка данных перед входом
         window.onload = function() {
             const username = localStorage.getItem("username");
             const email = localStorage.getItem("email");
             const registrationDate = localStorage.getItem("registrationDate");
 
-            // Проверка, если данные не сохранены, перенаправляем на страницу входа
+            // Если данных нет, перенаправляем на страницу входа
             if (!username || !email || !registrationDate) {
-                window.location.href = "login.html"; // Перенаправление на страницу входа, если нет данных
+                window.location.href = "login.html"; // Перенаправление на страницу входа
             }
 
+            // Отображение данных профиля
             document.getElementById("username").textContent = username || "Не указано";
             document.getElementById("email").textContent = email || "Не указано";
             document.getElementById("registration-date").textContent = registrationDate || "Не указано";

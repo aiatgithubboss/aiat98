@@ -6,58 +6,53 @@
     <title>Личный кабинет</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Сброс стилей */
+        /* Стили для личного кабинета */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Основные стили страницы */
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background-color: #f4f7fc;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            margin: 0;
         }
 
-        /* Стиль контейнера */
         .dashboard-container {
-            background: #fff;
+            background: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 100%;
             max-width: 480px;
             transition: transform 0.3s ease;
-            position: relative;
         }
 
-        /* Добавление небольшой анимации при наведении */
         .dashboard-container:hover {
-            transform: translateY(-10px);
+            transform: scale(1.02);
         }
 
-        /* Заголовок */
         h1 {
-            font-size: 32px;
-            color: #2575fc;
-            margin-bottom: 15px;
-            font-weight: 600;
+            font-size: 30px;
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-weight: 500;
         }
 
-        /* Информация о пользователе */
         .user-info {
-            background-color: #f7f7f7;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
             color: #555;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .user-info p {
@@ -67,68 +62,50 @@
 
         .user-info strong {
             color: #333;
+            font-weight: 600;
         }
 
-        /* Кнопка выхода */
         .btn {
-            background-color: #2575fc;
-            color: #fff;
-            padding: 15px 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 24px;
             border: none;
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             width: 100%;
-            max-width: 200px;
+            max-width: 220px;
             margin: 0 auto;
             display: block;
-            font-weight: 500;
         }
 
         .btn:hover {
-            background-color: #1a5dc4;
-            transform: translateY(-3px);
+            background-color: #45a049;
+            transform: translateY(-2px);
         }
 
         .btn:active {
             transform: translateY(0);
         }
 
-        /* Информация о подписке */
-        .subscription-info {
-            background-color: #e9f4ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            color: #2575fc;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .subscription-info p {
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        /* Медиазапросы для адаптивности */
         @media (max-width: 500px) {
             .dashboard-container {
                 padding: 30px;
-                max-width: 90%;
+                max-width: 95%;
             }
 
             h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
 
-            .user-info p, .subscription-info p {
-                font-size: 15px;
+            .user-info p {
+                font-size: 14px;
             }
 
             .btn {
                 font-size: 16px;
-                padding: 12px 16px;
+                padding: 12px 20px;
             }
         }
     </style>
@@ -138,28 +115,21 @@
     <div class="dashboard-container">
         <h1>Личный кабинет</h1>
         <div class="user-info">
-            <p>Добро пожаловать, <strong id="user-name">Пользователь</strong>!</p>
-            <p>Электронная почта: <strong id="user-email">user@example.com</strong></p>
+            <p>Добро пожаловать, <strong id="user-name"></strong>!</p>
+            <p>Электронная почта: <strong id="user-email"></strong></p>
         </div>
         <button onclick="logout()" class="btn">Выйти</button>
-        
-        <div class="subscription-info">
-            <p>Подписка: <strong>Премиум</strong></p>
-            <p>Дата окончания: <strong>25.12.2024</strong></p>
-        </div>
-    
+    </div>
+
     <script>
         // Получаем данные пользователя из localStorage
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
-        localStorage.setItem("username", username);
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
-        alert("Данные сохранены!");
-        // Функция выхода, очищает данные и возвращает на главную страницу
-    function logout() {
-        // Перенаправляем на главную страницу, не удаляя данные из localStorage
-        window.location.href = "index.html"; // Замените "index.html" на путь к главной странице
+
+        // Функция выхода, которая не удаляет данные и перенаправляет на главную страницу
+        function logout() {
+            // Перенаправляем пользователя на главную страницу (например, "index.html")
+            window.location.href = "index.html";
         }
     </script>
 

@@ -18,9 +18,10 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: 100%;
+            min-height: 100vh;
             margin: 0;
             overflow-x: hidden;
+            padding: 20px;
         }
 
         .container {
@@ -30,7 +31,6 @@
             align-items: center;
             width: 100%;
             max-width: 1200px;
-            padding: 20px;
         }
 
         .dashboard-container {
@@ -39,7 +39,7 @@
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 500px;
+            max-width: 800px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 40px;
         }
@@ -193,6 +193,28 @@
             margin-top: 10px;
             display: inline-block;
         }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .dashboard-container {
+                padding: 20px;
+                width: 100%;
+            }
+
+            .ads-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ad-block {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -242,30 +264,12 @@
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
 
-        // Функция для выхода (оставляем данные в localStorage и показываем сообщение)
+        // Функция для выхода
         document.getElementById("logout-btn").addEventListener("click", function() {
             const message = document.getElementById("logout-message");
             message.classList.add("visible");
-
-            // Без задержки сразу перенаправляем
-            window.location.href = "index.html"; // Здесь можно указать нужный путь
+            window.location.href = "index.html"; 
         });
 
-        // Функция для открытия модального окна
-        document.getElementById("add-note-btn").addEventListener("click", function() {
-            document.getElementById("noteModal").style.display = "flex";
-        });
-
-        // Функция для сохранения заметки
-        document.getElementById("save-note-btn").addEventListener("click", function() {
-            const noteText = document.getElementById("noteText").value;
-            if (noteText.trim() !== "") {
-                alert("Заметка сохранена!");
-                document.getElementById("noteText").value = ""; // Очистить поле
-                document.getElementById("noteModal").style.display = "none"; // Закрыть модальное окно
-            } else {
-                alert("Пожалуйста, введите заметку.");
-            }
-        });
-
-        // Зак
+        // Открытие модального окна
+        document.getElementById

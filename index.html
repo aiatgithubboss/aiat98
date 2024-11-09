@@ -12,9 +12,9 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
-            display: flex; /* Добавляем flex для body */
-            justify-content: center; /* Центрируем по горизонтали */
-            align-items: center; /* Центрируем по вертикали */
+            display: flex;
+            flex-direction: column; /* Включаем флекс-контейнер для вертикального размещения */
+            justify-content: space-between; /* Располагаем элементы по вертикали */
             background-color: #f4f4f4; /* Цвет фона страницы */
         }
 
@@ -24,7 +24,9 @@
             align-items: center;
             padding: 20px;
             width: 100%;
-            max-width: 800px; /* Ограничиваем ширину контейнера */
+            max-width: 800px;
+            flex-grow: 1; /* Чтобы контейнер растягивался */
+            margin-bottom: 60px; /* Отступ снизу, чтобы кнопки не перекрывались */
         }
 
         .logo {
@@ -36,9 +38,9 @@
 
         .author {
             font-size: 12px;
-            color: #555; /* Цвет для текста автора */
+            color: #555;
             text-align: center;
-            margin-bottom: 20px; /* Отступ снизу */
+            margin-bottom: 20px;
         }
 
         .search-bar {
@@ -93,7 +95,7 @@
         .ad-panel img {
             width: 100%;
             height: auto;
-            max-height: 150px; /* Ограничиваем высоту изображения */
+            max-height: 150px;
             border-radius: 8px;
         }
 
@@ -103,6 +105,11 @@
             gap: 15px;
             width: 100%;
             margin-top: 20px;
+            position: fixed;
+            bottom: 20px; /* Кнопки всегда внизу */
+            left: 0;
+            right: 0;
+            padding: 0 20px;
         }
 
         .buttons-container a {
@@ -126,7 +133,7 @@
 
         /* Для прокрутки страницы */
         body {
-            overflow-y: auto; /* Включаем вертикальную прокрутку */
+            overflow-y: auto;
             min-height: 100vh;
         }
     </style>
@@ -153,13 +160,13 @@
                 <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Реклама 3">
             </div>
             <div class="ad-panel">
-                <img src="https://via.placeholder.com/300x150" alt="Реклама 4"> <!-- Примерное изображение для рекламы 4 -->
+                <img src="https://via.placeholder.com/300x150" alt="Реклама 4">
             </div>
             <div class="ad-panel">
-                <img src="https://via.placeholder.com/300x150" alt="Реклама 5"> <!-- Примерное изображение для рекламы 5 -->
+                <img src="https://via.placeholder.com/300x150" alt="Реклама 5">
             </div>
             <div class="ad-panel">
-                <img src="https://via.placeholder.com/300x150" alt="Реклама 6"> <!-- Примерное изображение для рекламы 6 -->
+                <img src="https://via.placeholder.com/300x150" alt="Реклама 6">
             </div>
         </div>
     </div>

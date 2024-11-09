@@ -45,7 +45,6 @@
             font-size: 20px;
         }
 
-        /* Кнопки */
         .btn {
             background: linear-gradient(135deg, #8B4513, #cd853f);
             color: white;
@@ -65,6 +64,53 @@
         .btn:hover {
             background: linear-gradient(135deg, #a0522d, #d2691e);
         }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .modal button {
+            background: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .modal button:hover {
+            background: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -79,6 +125,55 @@
             <button id="logout-btn" class="btn">Выйти</button>
             <button id="add-note-btn" class="btn">Добавить заметку</button>
         </div>
+
+        <!-- Модальное окно для добавления заметки -->
+        <div id="noteModal" class="modal">
+            <div class="modal-content">
+                <h3>Добавить заметку</h3>
+                <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
+                <button id="save-note-btn">Сохранить заметку</button>
+                <button id="close-modal-btn">Закрыть</button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Загрузка данных пользователя из localStorage
+        document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
+        document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
+
+        // Логика для кнопки "Выйти" (данные не очищаются из localStorage)
+        document.getElementById("logout-btn").addEventListener("click", function() {
+            window.location.href = "index.html"; // Перенаправление на страницу входа
+        });
+
+        // Логика для кнопки "Добавить заметку"
+        const noteModal = document.getElementById("noteModal");
+        document.getElementById("add-note-btn").addEventListener("click", function() {
+            noteModal.style.display = "flex";
+        });
+
+        // Сохранение заметки и закрытие модального окна
+        document.getElementById("save-note-btn").addEventListener("click", function() {
+            const noteText = document.getElementById("noteText").value;
+            if (noteText) {
+                alert("Заметка сохранена: " + noteText);
+                document.getElementById("noteText").value = ""; // Очистить поле
+                noteModal.style.display = "none"; // Закрыть модальное окно
+            }
+        });
+
+        // Закрытие модального окна без сохранения
+        document.getElementById("close-modal-btn").addEventListener("click", function() {
+            noteModal.style.display = "none";
+        });
+
+        // Закрытие модального окна при клике вне его
+        window.addEventListener("click", function(event) {
+            if (event.target == noteModal) {
+                noteModal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -12,6 +12,10 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+            display: flex; /* Добавляем flex для body */
+            justify-content: center; /* Центрируем по горизонтали */
+            align-items: center; /* Центрируем по вертикали */
+            background-color: #f4f4f4; /* Цвет фона страницы */
         }
 
         .container {
@@ -19,23 +23,27 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            height: 100%;
-            overflow: auto; /* Добавляем прокрутку */
+            width: 100%;
+            max-width: 800px; /* Ограничиваем ширину контейнера */
         }
 
         .logo {
             font-size: 36px;
             font-weight: bold;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .search-bar {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .search-bar input {
             padding: 10px;
             width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         .search-bar button {
@@ -45,6 +53,7 @@
             border: none;
             cursor: pointer;
             margin-left: 10px;
+            border-radius: 5px;
         }
 
         .info-panel {
@@ -55,6 +64,8 @@
             margin-bottom: 20px;
             width: 100%;
             max-width: 800px;
+            color: white;
+            text-align: center;
         }
 
         .ad-container {
@@ -62,7 +73,6 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             width: 100%;
-            max-width: 800px;
             margin-bottom: 20px;
         }
 
@@ -77,6 +87,8 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            width: 100%;
+            margin-top: 20px;
         }
 
         .buttons-container a {

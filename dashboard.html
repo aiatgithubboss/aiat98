@@ -157,11 +157,9 @@
         localStorage.setItem("password", password);
         alert("Данные сохранены!");
         // Функция выхода, очищает данные и возвращает на главную страницу
-        function logout() {
-            localStorage.removeItem("username");
-            localStorage.removeItem("email");
-            localStorage.removeItem("password");
-            window.location.href = "index.html";
+    function logout() {
+        // Перенаправляем на главную страницу, не удаляя данные из localStorage
+        window.location.href = "index.html"; // Замените "index.html" на путь к главной странице
         }
     </script>
 

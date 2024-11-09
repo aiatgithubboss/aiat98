@@ -3,96 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Личный кабинет</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Стили для формы входа */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #eef2f5;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
+            min-height: 100vh;
             margin: 0;
+            overflow-x: hidden;
+            padding: 20px;
         }
-        .form-container {
-            background: #fff;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .dashboard-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 800px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #34495e;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .user-info {
+            background-color: #f3f4f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: #555;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .user-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .user-info strong {
+            color: #34495e;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #6fd56f);
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #45a049, #5fc35f);
+            transform: translateY(-3px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            color: #28a745;
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            text-align: center;
+        }
+
+        .message.visible {
+            opacity: 1;
+        }
+
+        /* Модальное окно для заметок */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal textarea {
             width: 100%;
-            max-width: 400px;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            font-size: 14px;
-            color: #333;
-        }
-        input {
-            width: 100%;
+            height: 150px;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            margin-top: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            font-size: 14px;
         }
-        .button {
-            width: 100%;
-            background-color: #4caf50;
+
+        .modal button {
+            background: #4caf50;
             color: white;
-            padding: 15px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
         }
-        .button:hover {
-            background-color: #45a049;
+
+        .modal button:hover {
+            background: #45a049;
+        }
+
+        /* Рекламные блоки */
+        .ads-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .ad-block {
+            background: #f9f9f9;
+            padding: 20px;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .ad-block a {
+            color: #3498db;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .dashboard-container {
+                padding: 20px;
+                width: 100%;
+            }
+
+            .ads-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ad-block {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Вход</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="username">Имя пользователя</label>
-                <input type="text" id="username" name="username" required>
+    <div class="container">
+        <div class="dashboard-container">
+            <h1>Личный кабинет</h1>
+            <div class="user-info">
+                <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
+                <p>Электронная почта: <strong id="user-email">...</strong></p>
             </div>
-            <div class="form-group">
-                <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" required>
+
+            <button id="logout-btn" class="btn">Выйти</button>
+            <p id="logout-message" class="message">Вы успешно вышли!</p>
+
+            <button id="add-note-btn" class="btn">Добавить заметку</button>
+        </div>
+
+        <!-- Модальное окно для добавления заметки -->
+        <div id="noteModal" class="modal">
+            <div class="modal-content">
+                <h3>Добавить заметку</h3>
+                <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
+                <button id="save-note-btn">Сохранить заметку</button>
             </div>
-            <button type="submit" class="button">Войти</button>
-        </form>
+        </div>
+
+        <!-- Рекламные блоки -->
+        <div class="ads-container">
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 1">
+                <a href="#">Узнайте больше о наших продуктах!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 2">
+                <a href="#">Скидки на все товары!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
+                <a href="#">Подпишитесь на нашу рассылку!</a>
+            </div>
+        </div>
     </div>
 
     <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
+        // Загрузка данных пользователя из localStorage
+        document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
+        document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
 
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            // Проверка данных из localStorage (это простая проверка, для реальных приложений нужно улучшить безопасность)
-            const savedUsername = localStorage.getItem("username");
-            const savedPassword = localStorage.getItem("password");
-
-            if (username === savedUsername && password === savedPassword) {
-                // Перенаправляем на страницу личного кабинета
-                window.location.href = "dashboard.html";
-            } else {
-                alert("Неверные имя пользователя или пароль.");
-            }
+        // Функция для выхода
+        document.getElementById("logout-btn").addEventListener("click", function() {
+            const message = document.getElementById("logout-message");
+            message.classList.add("visible");
+            window.location.href = "index.html"; 
         });
-    </script>
 
-</body>
-</html>
+        // Открытие модального окна
+        document.getElementById

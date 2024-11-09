@@ -228,10 +228,10 @@
                 <p>Электронная почта: <strong id="user-email">...</strong></p>
             </div>
 
-            <button onclick="logout()" class="btn">Выйти</button>
+            <button id="logout-btn" class="btn">Выйти</button>
             <p id="logout-message" class="message">Вы успешно вышли!</p>
 
-            <button class="btn" onclick="openNoteModal()">Добавить заметку</button>
+            <button id="add-note-btn" class="btn">Добавить заметку</button>
         </div>
 
         <!-- Модальное окно для добавления заметки -->
@@ -239,7 +239,7 @@
             <div class="modal-content">
                 <h3>Добавить заметку</h3>
                 <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
-                <button onclick="saveNote()">Сохранить заметку</button>
+                <button id="save-note-btn">Сохранить заметку</button>
             </div>
         </div>
 
@@ -266,23 +266,12 @@
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
 
         // Функция для выхода (оставляем данные в localStorage и показываем сообщение)
-        function logout() {
+        document.getElementById("logout-btn").addEventListener("click", function() {
             const message = document.getElementById("logout-message");
             message.classList.add("visible");
 
             // Без задержки сразу перенаправляем
             window.location.href = "index.html";
-        }
+        });
 
-        // Функция для открытия модального окна
-        function openNoteModal() {
-            document.getElementById("noteModal").style.display = "flex";
-        }
-
-        // Функция для сохранения заметки
-        function saveNote() {
-            const noteText = document.getElementById("noteText").value;
-            if (noteText.trim() !== "") {
-                alert("Заметка сохранена!");
-                document.getElementById("noteText").value = ""; // Очистить поле
-                document.getElementById("note
+        //

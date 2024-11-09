@@ -37,12 +37,11 @@
             font-size: 18px;
         }
 
-        .quote {
-            font-style: italic;
-            text-align: center;
-            color: #555;
-            margin: 20px 0;
+        .description {
             font-size: 20px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .btn {
@@ -111,6 +110,38 @@
         .modal button:hover {
             background: #45a049;
         }
+
+        /* Рекламные блоки */
+        .ads-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .ad-block {
+            background: #f9f9f9;
+            padding: 20px;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .ad-block a {
+            color: #3498db;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +152,7 @@
                 <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
                 <p>Электронная почта: <strong id="user-email">...</strong></p>
             </div>
-            <p class="quote">"Счастье - это не то, что ты видишь, а то, как ты видишь."</p>
+            <p class="description">Это ваш личный кабинет, где вы можете управлять заметками, просматривать полезную информацию и получать обновления.</p>
             <button id="logout-btn" class="btn">Выйти</button>
             <button id="add-note-btn" class="btn">Добавить заметку</button>
         </div>
@@ -133,6 +164,22 @@
                 <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
                 <button id="save-note-btn">Сохранить заметку</button>
                 <button id="close-modal-btn">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- Рекламные блоки -->
+        <div class="ads-container">
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 1">
+                <a href="#">Узнайте больше о наших продуктах!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 2">
+                <a href="#">Скидки на все товары!</a>
+            </div>
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
+                <a href="#">Подпишитесь на нашу рассылку!</a>
             </div>
         </div>
     </div>

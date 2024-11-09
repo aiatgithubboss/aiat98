@@ -111,24 +111,6 @@
         </div>
     </div>
 
-Чтобы при нажатии на кнопку выхода осуществлять редирект на главную страницу, необходимо заменить функцию `logout` на следующую:
-
-```javascript
-function logout() {
-    // Реализация выхода из аккаунта
-    alert('Вы вышли из аккаунта');
-    // Редирект на главную страницу (например, index.html)
-    window.location.href = 'index.html'; // Замените 'index.html' на нужный URL
-}
-```
-
-Полный код блока с обновленным JavaScript будет выглядеть следующим образом:
-
-```html
-<div class="logout">
-    <button onclick="logout()">Выйти</button>
-</div>
-
 <script>
     // Пример заполнения профиля (вы можете заменить на динамические данные)
     document.getElementById('username').innerText = 'Иван Иванов';

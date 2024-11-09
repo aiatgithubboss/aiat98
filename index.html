@@ -1,182 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Общие стили для страницы */
+        /* Основные стили для страницы */
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1b1b1b, #333);
+            height: 100%;
             font-family: Arial, sans-serif;
-            color: #ffffff;
-            overflow: hidden;
         }
 
         .container {
-            text-align: center;
-            max-width: 600px;
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: 20px;
+            height: 100%;
+            overflow: auto; /* Добавляем прокрутку */
         }
 
         .logo {
-            font-size: 3em;
+            font-size: 36px;
             font-weight: bold;
-            color: #ffd700;
             margin-bottom: 20px;
-            text-transform: uppercase;
         }
 
         .search-bar {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
             margin-bottom: 20px;
         }
 
-        .search-bar input[type="text"] {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            outline: none;
-            font-size: 1em;
-            color: #333;
+        .search-bar input {
+            padding: 10px;
+            width: 200px;
         }
 
         .search-bar button {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            bottom: 5px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
-            background-color: #ffd700;
-            color: #333;
-            padding: 0 20px;
-            border-radius: 50px;
-            font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s ease;
+            margin-left: 10px;
         }
 
         .info-panel {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            line-height: 1.5;
             margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
             margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
         }
 
         .ad-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-top: 20px;
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
+            margin-bottom: 30px;
         }
 
         .ad-panel {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            background-color: #e0e0e0;
             padding: 20px;
             text-align: center;
-            font-size: 1em;
-            color: #ffd700;
+            border-radius: 8px;
         }
 
-        /* Кнопки регистрации и входа закреплены внизу */
         .buttons-container {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 15px;
-            border-top: 2px solid #ffd700;
+            gap: 20px;
         }
 
-        .buttons button {
+        .buttons-container a {
+            text-decoration: none;
+        }
+
+        .register-btn, .login-btn {
             padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1em;
             cursor: pointer;
-            margin: 0;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        .register-btn {
-            background: linear-gradient(45deg, #ffdd00, #ffa700);
-            font-weight: bold;
+        .register-btn:hover, .login-btn:hover {
+            background-color: #45a049;
         }
 
-        .register-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(45deg, #ffa700, #ffdd00);
-        }
-
-        .login-btn {
-            background: linear-gradient(45deg, #333, #555);
-            color: #ffd700;
-            font-weight: bold;
-            border: 2px solid #ffd700;
-        }
-
-        .login-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-            background: #ffd700;
-            color: #333;
-        }
-
-        /* Мобильная версия - уменьшение кнопок */
-        @media (max-width: 600px) {
-            .buttons button {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
+        /* Для прокрутки страницы */
+        body {
+            overflow-y: auto; /* Включаем вертикальную прокрутку */
+            min-height: 100vh;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Логотип сайта -->
         <div class="logo">Мой Сайт</div>
-        
-        <!-- Строка поиска над панелью -->
         <div class="search-bar">
             <input type="text" placeholder="Введите запрос...">
             <button type="submit">Поиск</button>
         </div>
-        
-        <!-- Информационная панель -->
         <div class="info-panel">
             Добро пожаловать на наш сайт! Здесь вы найдете интересные и полезные материалы, а также сможете воспользоваться удобным поиском. Зарегистрируйтесь, чтобы получить доступ ко всем функциям.
         </div>
-
-        <!-- Рекламные панели -->
         <div class="ad-container">
             <div class="ad-panel">Реклама 1</div>
             <div class="ad-panel">Реклама 2</div>
@@ -186,19 +124,13 @@
             <div class="ad-panel">Реклама 6</div>
         </div>
     </div>
-
-    <!-- Кнопки "Регистрация" и "Вход" всегда внизу страницы -->
     <div class="buttons-container">
-        <!-- Кнопка регистрации, направляет на страницу регистрации -->
         <a href="register.html">
             <button class="register-btn">Регистрация</button>
         </a>
-        
-        <!-- Кнопка входа, направляет на страницу входа -->
         <a href="login.html">
             <button class="login-btn">Вход</button>
         </a>
     </div>
-
 </body>
 </html>

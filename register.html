@@ -3,132 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Стили для формы входа */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #2F2F2F; /* Графитовый цвет фона страницы */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff; /* Белый цвет текста на тёмном фоне */
-        }
-
-        .form-container {
-            background: #f0f0f0; /* Светло-серый фон для контейнера */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 16px;
-            color: #333;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-top: 5px;
-            font-size: 16px;
-            background-color: #f9f9f9;
-        }
-
-        .button {
-            width: 100%;
-            background-color: #4caf50;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        .form-footer {
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .form-footer a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .form-footer a:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+    <title>Регистрация</title>
 </head>
 <body>
+    <h1>Регистрация</h1>
 
-    <div class="form-container">
-        <h2>Вход</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="username">Имя пользователя</label>
-                <input type="text" id="username" name="username" required placeholder="Введите имя пользователя">
-            </div>
-            <div class="form-group">
-                <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" required placeholder="Введите пароль">
-            </div>
-            <button type="submit" class="button">Войти</button>
-        </form>
-
-        <div class="form-footer">
-            <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
-        </div>
-    </div>
+    <form id="register-form">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="confirm-password">Подтвердите пароль:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <br>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
 
     <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
+        document.getElementById("register-form").addEventListener("submit", function(event) {
             event.preventDefault();
 
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
 
-            // Проверка данных из localStorage (это простая проверка, для реальных приложений нужно улучшить безопасность)
-            const savedUsername = localStorage.getItem("username");
-            const savedPassword = localStorage.getItem("password");
+            // Проверка, совпадают ли пароли
+            if (password !== confirmPassword) {
+                alert("Пароли не совпадают.");
+                return;
+            }
 
-            if (username === savedUsername && password === savedPassword) {
-                // Перенаправляем на страницу личного кабинета
-                window.location.href = "dashboard.html";
+            // Простой пример проверки: если имя пользователя и пароль не пустые
+            if (username && password) {
+                alert("Регистрация прошла успешно!");
+                window.location.href = "login.html"; // Перенаправление на страницу входа
             } else {
-                alert("Неверные имя пользователя или пароль.");
+                alert("Пожалуйста, заполните все поля.");
             }
         });
     </script>
-
 </body>
-</html> вот страница логин если логин и код админа совпадают тогда направлять на страницу админ
+</html>

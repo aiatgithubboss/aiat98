@@ -125,13 +125,9 @@
     <!-- Данные пользователя -->
     <div class="avatar-container">
     <!-- Место для аватарки -->
-    <img id="user-avatar" src="https://via.placeholder.com/100" alt="Аватар">
-    <input type="file" id="avatar-upload" accept="image/*" onchange="updateAvatar()">
-    <label for="avatar-upload">Загрузить аватар</label>
-    </div>
+        
     <div class="user-info">
         <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
-        <p>Электронная почта: <strong id="user-email">...</strong></p>
     </div>
 
     <!-- Кнопки -->
@@ -213,7 +209,7 @@
         }
 
         // Инициализация количества товаров
-        updateCartCount();
+        updateCartCount();щ
         function updateAvatar() {
     const fileInput = document.getElementById('avatar-upload');
     const avatar = document.getElementById('user-avatar');
@@ -229,14 +225,6 @@
         reader.readAsDataURL(fileInput.files[0]); // Читаем файл как Data URL
     }
 }
-
-// При загрузке страницы устанавливаем сохранённый аватар
-document.addEventListener('DOMContentLoaded', function() {
-    const savedAvatar = localStorage.getItem('avatar');
-    if (savedAvatar) {
-        document.getElementById('user-avatar').src = savedAvatar;
-    }
-});
     </script>
 </body>
 </html>

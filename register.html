@@ -21,9 +21,8 @@
             overflow: hidden;
         }
 
-        /* Форматирование контейнера */
         .container {
-            background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для формы */
+            background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
@@ -70,15 +69,6 @@
             outline: none;
         }
 
-        input::placeholder {
-            color: #aaa;
-        }
-
-        input:focus {
-            background-color: #444;
-            border-color: #55aaff;
-        }
-
         button {
             width: 100%;
             padding: 15px;
@@ -89,7 +79,6 @@
             cursor: pointer;
             color: white;
             transition: background-color 0.3s, transform 0.3s;
-            letter-spacing: 1px;
         }
 
         button:hover {
@@ -101,17 +90,6 @@
             transform: translateY(1px);
         }
 
-        /* Для мобильных устройств */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            input, button {
-                font-size: 14px;
-                padding: 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -146,8 +124,10 @@
                 return;
             }
 
-            // Проверка, что поля не пустые
+            // Сохранение данных в localStorage
             if (username && password) {
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
                 alert("Регистрация прошла успешно!");
                 window.location.href = "login.html"; // Перенаправление на страницу входа
             } else {

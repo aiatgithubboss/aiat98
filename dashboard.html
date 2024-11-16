@@ -8,14 +8,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e0e0e0; /* Серый фон */
+            background-color: #2f2f2f; /* Фон графит */
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #fff;
         }
 
         .logo {
@@ -37,7 +37,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             cursor: pointer;
         }
 
@@ -53,10 +53,10 @@
         }
 
         .user-info {
-            background-color: #fff;
+            background-color: #3d3d3d;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             margin: 20px;
             width: 100%;
             max-width: 600px;
@@ -71,14 +71,14 @@
         .btn {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 16px; /* Уменьшены отступы */
+            padding: 10px 16px;
             border: none;
             border-radius: 20px;
-            font-size: 14px; /* Уменьшен шрифт */
+            font-size: 14px;
             cursor: pointer;
-            margin: 8px auto; /* Уменьшено расстояние между кнопками */
+            margin: 8px auto;
             transition: background-color 0.3s ease;
-            width: 160px; /* Уменьшена ширина */
+            width: 160px;
             display: block;
             text-align: center;
         }
@@ -97,11 +97,13 @@
         }
 
         .ad-block {
-            background-color: #f4f4f4;
+            background-color: #4a4a4a;
             padding: 10px;
             border-radius: 10px;
             width: 150px;
             text-align: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .ad-block img {
@@ -131,15 +133,46 @@
 
     <!-- Рекламные блоки -->
     <div class="ads-container">
+        <!-- 8 рекламных блоков -->
         <div class="ad-block">
-            <img src="https://via.placeholder.com/150" alt="Реклама 1">
+            <img src="https://via.placeholder.com/150" alt="Товар 1">
             <p>Товар 1</p>
             <button class="btn" onclick="addToCart('Товар 1')">Добавить в корзину</button>
         </div>
         <div class="ad-block">
-            <img src="https://via.placeholder.com/150" alt="Реклама 2">
+            <img src="https://via.placeholder.com/150" alt="Товар 2">
             <p>Товар 2</p>
             <button class="btn" onclick="addToCart('Товар 2')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 3">
+            <p>Товар 3</p>
+            <button class="btn" onclick="addToCart('Товар 3')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 4">
+            <p>Товар 4</p>
+            <button class="btn" onclick="addToCart('Товар 4')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 5">
+            <p>Товар 5</p>
+            <button class="btn" onclick="addToCart('Товар 5')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 6">
+            <p>Товар 6</p>
+            <button class="btn" onclick="addToCart('Товар 6')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 7">
+            <p>Товар 7</p>
+            <button class="btn" onclick="addToCart('Товар 7')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Товар 8">
+            <p>Товар 8</p>
+            <button class="btn" onclick="addToCart('Товар 8')">Добавить в корзину</button>
         </div>
     </div>
 
@@ -150,7 +183,7 @@
 
         // Логика для кнопки "Выйти"
         document.getElementById("logout-btn").addEventListener("click", function() {
-            window.location.href = "index.html"; // Перенаправление на страницу входа
+            window.location.href = "index.html";
         });
 
         // Обновление количества товаров в корзине
@@ -170,7 +203,7 @@
 
         // Переход в корзину
         function goToCart() {
-            window.location.href = "cart.html"; // Ссылка на страницу корзины
+            window.location.href = "cart.html";
         }
 
         // Инициализация количества товаров

@@ -4,129 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Scheherazade New', serif;
-            background: linear-gradient(135deg, #f4e3c2, #fbe3e4);
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
             color: #333;
         }
- 
-        h1 {
-            font-size: 32px;
-            color: #8B4513;
-            margin-bottom: 20px;
-            font-weight: 700;
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
             text-align: center;
-            letter-spacing: 1px;
+            color: #4CAF50;
+        }
+
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .cart span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            padding: 2px 6px;
         }
 
         .user-info {
-            background-color: #fdf4e3;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 100%;
+            max-width: 600px;
             text-align: left;
-            font-size: 18px;
         }
 
-        .description {
-            font-size: 20px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 20px;
+        .user-info p {
+            margin: 10px 0;
+            font-size: 18px;
         }
 
         .btn {
-            background: linear-gradient(135deg, #8B4513, #cd853f);
+            background-color: #4CAF50;
             color: white;
-            padding: 14px 20px;
+            padding: 12px 20px;
             border: none;
             border-radius: 25px;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            width: 200px;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 10px auto;
+            transition: background-color 0.3s ease;
+            width: 180px;
+            display: block;
+            text-align: center;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #a0522d, #d2691e);
+            background-color: #45a049;
         }
 
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .modal button {
-            background: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .modal button:hover {
-            background: #45a049;
-        }
-
-        /* Рекламные блоки */
         .ads-container {
-            margin-top: 40px;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
+            margin: 20px 0;
+            width: 100%;
         }
 
         .ad-block {
-            background: #f9f9f9;
-            padding: 20px;
-            width: 100%;
-            max-width: 380px;
+            background-color: #e0e0e0;
+            padding: 10px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 150px;
             text-align: center;
         }
 
@@ -134,93 +108,73 @@
             max-width: 100%;
             border-radius: 8px;
         }
-
-        .ad-block a {
-            color: #3498db;
-            font-size: 16px;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="dashboard-container">
-            <h1>Личный кабинет</h1>
-            <div class="user-info">
-                <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
-                <p>Электронная почта: <strong id="user-email">...</strong></p>
-            </div>
-            <p class="description">Это ваш личный кабинет, где вы можете управлять заметками, просматривать полезную информацию и получать обновления.</p>
-            <button id="logout-btn" class="btn">Выйти</button>
-            <button id="add-note-btn" class="btn">Добавить заметку</button>
-        </div>
+    <!-- Логотип -->
+    <div class="logo">Тьянши</div>
 
-        <!-- Модальное окно для добавления заметки -->
-        <div id="noteModal" class="modal">
-            <div class="modal-content">
-                <h3>Добавить заметку</h3>
-                <textarea id="noteText" placeholder="Введите вашу заметку..."></textarea>
-                <button id="save-note-btn">Сохранить заметку</button>
-                <button id="close-modal-btn">Закрыть</button>
-            </div>
-        </div>
+    <!-- Корзина -->
+    <div class="cart" onclick="goToCart()">
+        🛒
+        <span id="cart-count">0</span>
+    </div>
 
-        <!-- Рекламные блоки -->
-        <div class="ads-container">
-            <div class="ad-block">
-                <img src="https://images.unsplash.com/photo-1730918404288-c03126acabce?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Реклама 1">
-                <a href="#">Узнайте больше о наших продуктах!</a>
-            </div>
-            <div class="ad-block">
-                <img src="https://images.unsplash.com/photo-1604467794349-0b74285de7e7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Реклама 2">
-                <a href="#">Скидки на все товары!</a>
-            </div>
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/380x150" alt="Реклама 3">
-                <a href="#">Подпишитесь на нашу рассылку!</a>
-            </div>
+    <!-- Данные пользователя -->
+    <div class="user-info">
+        <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
+        <p>Электронная почта: <strong id="user-email">...</strong></p>
+    </div>
+
+    <!-- Кнопки -->
+    <button id="logout-btn" class="btn">Выйти</button>
+
+    <!-- Рекламные блоки -->
+    <div class="ads-container">
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Реклама 1">
+            <p>Товар 1</p>
+            <button class="btn" onclick="addToCart('Товар 1')">Добавить в корзину</button>
+        </div>
+        <div class="ad-block">
+            <img src="https://via.placeholder.com/150" alt="Реклама 2">
+            <p>Товар 2</p>
+            <button class="btn" onclick="addToCart('Товар 2')">Добавить в корзину</button>
         </div>
     </div>
 
     <script>
-        // Загрузка данных пользователя из localStorage
+        // Инициализация данных
         document.getElementById("user-name").textContent = localStorage.getItem("username") || "Неизвестный пользователь";
         document.getElementById("user-email").textContent = localStorage.getItem("email") || "Не указана";
 
-        // Логика для кнопки "Выйти" (данные не очищаются из localStorage)
+        // Логика для кнопки "Выйти"
         document.getElementById("logout-btn").addEventListener("click", function() {
             window.location.href = "index.html"; // Перенаправление на страницу входа
         });
 
-        // Логика для кнопки "Добавить заметку"
-        const noteModal = document.getElementById("noteModal");
-        document.getElementById("add-note-btn").addEventListener("click", function() {
-            noteModal.style.display = "flex";
-        });
+        // Обновление количества товаров в корзине
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            document.getElementById("cart-count").textContent = cart.length;
+        }
 
-        // Сохранение заметки и закрытие модального окна
-        document.getElementById("save-note-btn").addEventListener("click", function() {
-            const noteText = document.getElementById("noteText").value;
-            if (noteText) {
-                alert("Заметка сохранена: " + noteText);
-                document.getElementById("noteText").value = ""; // Очистить поле
-                noteModal.style.display = "none"; // Закрыть модальное окно
-            }
-        });
+        // Добавление товара в корзину
+        function addToCart(item) {
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            cart.push(item);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+            alert(`"${item}" добавлен в корзину!`);
+        }
 
-        // Закрытие модального окна без сохранения
-        document.getElementById("close-modal-btn").addEventListener("click", function() {
-            noteModal.style.display = "none";
-        });
+        // Переход в корзину
+        function goToCart() {
+            window.location.href = "cart.html"; // Ссылка на страницу корзины
+        }
 
-        // Закрытие модального окна при клике вне его
-        window.addEventListener("click", function(event) {
-            if (event.target == noteModal) {
-                noteModal.style.display = "none";
-            }
-        });
+        // Инициализация количества товаров
+        updateCartCount();
     </script>
 </body>
 </html>

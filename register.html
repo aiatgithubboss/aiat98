@@ -117,27 +117,18 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Проверка данных для администратора
-            const adminUsername = localStorage.getItem("adminUsername");
-            const adminPassword = localStorage.getItem("adminPassword");
+            // Проверка данных из localStorage (это простая проверка, для реальных приложений нужно улучшить безопасность)
+            const savedUsername = localStorage.getItem("username");
+            const savedPassword = localStorage.getItem("password");
 
-            if (username === adminUsername && password === adminPassword) {
-                // Перенаправление на страницу администратора
-                window.location.href = "admin.html"; 
+            if (username === savedUsername && password === savedPassword) {
+                // Перенаправляем на страницу личного кабинета
+                window.location.href = "dashboard.html";
             } else {
-                // Проверка для обычного пользователя, если нужно
-                const savedUsername = localStorage.getItem("username");
-                const savedPassword = localStorage.getItem("password");
-
-                if (username === savedUsername && password === savedPassword) {
-                    // Перенаправляем на страницу пользователя (например, панель пользователя)
-                    window.location.href = "dashboard.html";
-                } else {
-                    alert("Неверные имя пользователя или пароль.");
-                }
+                alert("Неверные имя пользователя или пароль.");
             }
         });
     </script>
 
 </body>
-</html>
+</html> вот страница логин если логин и код админа совпадают тогда направлять на страницу админ

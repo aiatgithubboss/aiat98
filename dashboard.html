@@ -123,6 +123,12 @@
     </div>
 
     <!-- Данные пользователя -->
+    <div class="avatar-container">
+    <!-- Место для аватарки -->
+    <img id="user-avatar" src="https://via.placeholder.com/100" alt="Аватар">
+    <input type="file" id="avatar-upload" accept="image/*" onchange="updateAvatar()">
+    <label for="avatar-upload">Загрузить аватар</label>
+    </div>
     <div class="user-info">
         <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
         <p>Электронная почта: <strong id="user-email">...</strong></p>

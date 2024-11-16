@@ -221,6 +221,9 @@
 
         // Логика для кнопки "Выйти"
         document.getElementById("logout-btn").addEventListener("click", function() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            localStorage.removeItem("cart");
             window.location.href = "index.html";
         });
 
@@ -232,8 +235,4 @@
 
         // Добавление товара в корзину
         function addToCart(item) {
-            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            cart.push(item);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartCount();
-            alert(`"${item}" добавлен в корз
+            const cart = JSON.parse(localStorage.get

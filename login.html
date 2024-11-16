@@ -117,13 +117,20 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Проверка данных из localStorage (это простая проверка, для реальных приложений нужно улучшить безопасность)
+            // Проверка данных из localStorage (проверка для обычного пользователя)
             const savedUsername = localStorage.getItem("username");
             const savedPassword = localStorage.getItem("password");
 
+            // Данные для администратора
+            const adminUsername = "admin"; // Логин администратора
+            const adminPassword = "admin123"; // Пароль администратора
+
             if (username === savedUsername && password === savedPassword) {
-                // Перенаправляем на страницу личного кабинета
+                // Перенаправляем на страницу пользователя
                 window.location.href = "dashboard.html";
+            } else if (username === adminUsername && password === adminPassword) {
+                // Перенаправляем на страницу админа
+                window.location.href = "admin.html";
             } else {
                 alert("Неверные имя пользователя или пароль.");
             }

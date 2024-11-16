@@ -4,86 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
+        /* Стили для формы входа */
         body {
-            background-color: #2F4F4F; /* Графитовый фон */
             font-family: 'Roboto', sans-serif;
-            color: #fff;
-            margin: 0;
-            padding: 0;
+            background-color: #2F2F2F; /* Графитовый цвет фона страницы */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            color: #fff; /* Белый цвет текста на тёмном фоне */
         }
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
-            padding: 40px;
-            border-radius: 12px;
+        .form-container {
+            background: #f0f0f0; /* Светло-серый фон для контейнера */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
             text-align: center;
-            animation: fadeIn 1s ease-out;
-            backdrop-filter: blur(10px);
         }
 
-        h1 {
+        h2 {
             font-size: 28px;
+            font-weight: 500;
+            color: #333;
             margin-bottom: 30px;
-            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
         }
 
         label {
             font-size: 16px;
-            margin-bottom: 8px;
+            color: #333;
             display: block;
-            text-align: left;
-            color: #ddd;
+            margin-bottom: 8px;
         }
 
         input {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #444;
+            padding: 12px;
+            border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #333;
-            color: #fff;
+            margin-top: 5px;
             font-size: 16px;
+            background-color: #f9f9f9;
         }
 
-        button {
+        .button {
             width: 100%;
+            background-color: #4caf50;
+            color: white;
             padding: 15px;
-            background-color: #55aaff;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
             cursor: pointer;
-            color: white;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #3399cc;
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .form-footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
         }
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Вход в систему</h1>
 
+    <div class="form-container">
+        <h2>Вход</h2>
         <form id="login-form">
-            <label for="username">Имя пользователя:</label>
-            <input type="text" id="username" name="username" required placeholder="Введите ваше имя">
-
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
-
-            <button type="submit">Войти</button>
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" required placeholder="Введите имя пользователя">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required placeholder="Введите пароль">
+            </div>
+            <button type="submit" class="button">Войти</button>
         </form>
+
+        <div class="form-footer">
+            <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+        </div>
     </div>
 
     <script>
@@ -93,17 +117,18 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
+            // Проверка данных из localStorage (это простая проверка, для реальных приложений нужно улучшить безопасность)
             const savedUsername = localStorage.getItem("username");
             const savedPassword = localStorage.getItem("password");
 
-            // Проверка введенных данных
             if (username === savedUsername && password === savedPassword) {
-                alert("Вход выполнен успешно!");
-                window.location.href = "dashboard.html"; // Перенаправление на страницу после входа
+                // Перенаправляем на страницу личного кабинета
+                window.location.href = "dashboard.html";
             } else {
-                alert("Неверное имя пользователя или пароль.");
+                alert("Неверные имя пользователя или пароль.");
             }
         });
     </script>
+
 </body>
 </html>

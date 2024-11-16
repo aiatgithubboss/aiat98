@@ -68,6 +68,38 @@
             font-size: 18px;
         }
 
+        .avatar-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-right: 20px;
+        }
+
+        .avatar-container input[type="file"] {
+            display: none;
+        }
+
+        .avatar-container label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .avatar-container label:hover {
+            background-color: #45a049;
+        }
+
         .btn {
             background-color: #4CAF50;
             color: white;
@@ -124,6 +156,12 @@
 
     <!-- Данные пользователя -->
     <div class="user-info">
+        <div class="avatar-container">
+            <!-- Место для аватарки -->
+            <img id="user-avatar" src="https://via.placeholder.com/100" alt="Аватар">
+            <input type="file" id="avatar-upload" accept="image/*" onchange="updateAvatar()">
+            <label for="avatar-upload">Загрузить аватар</label>
+        </div>
         <p>Добро пожаловать, <strong id="user-name">...</strong>!</p>
         <p>Электронная почта: <strong id="user-email">...</strong></p>
     </div>
@@ -199,15 +237,3 @@
             localStorage.setItem("cart", JSON.stringify(cart));
             updateCartCount();
             alert(`"${item}" добавлен в корзину!`);
-        }
-
-        // Переход в корзину
-        function goToCart() {
-            window.location.href = "cart.html";
-        }
-
-        // Инициализация количества товаров
-        updateCartCount();
-    </script>
-</body>
-</html>
